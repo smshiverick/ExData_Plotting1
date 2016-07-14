@@ -1,5 +1,5 @@
 ## EXPLORATORY DATA ANALYSIS: ASSMT ONE - PLOTTING WITH BASE PLOT
-## Plot 3. 
+## Plot 3. Plot DateTime and SubMetering 1, 2, 3, with legend (by color)
 powerData <- read.table("household_power_consumption.txt", header=TRUE, sep=";", na.strings="?", stringsAsFactors=FALSE, dec=".")
 powerDataSet <- powerData[powerData$Date %in% c("1/2/2007","2/2/2007") ,]
 str(powerDataSet)
