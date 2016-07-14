@@ -5,10 +5,9 @@
 
 # Github REPO: https://github.com/smshiverick/ExData_Plotting1
 setwd("~/data_science_coursera/exploratory_data_analysis")
-library(dplyr)
 library(data.table)
 
-## Download dataset, and unzip data files 
+## Plot 1. Download the dataset, and unzip data files 
 if(!file.exists("./data")){dir.create("./data")}
 fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 download.file(fileUrl, destfile = "household_power_consumption.zip", method = "curl")
@@ -18,6 +17,7 @@ unzip(zipfile = "household_power_consumption.zip")
 ## Note missing values in dataset coded as ?
 powerData <- read.table("household_power_consumption.txt", header=TRUE, sep=";", na.strings="?", stringsAsFactors=FALSE, dec=".")
 powerDataSet <- powerData[powerData$Date %in% c("1/2/2007","2/2/2007") ,]
+globalActivePower <- as.numeric(powerDataSet$Global_active_power)
 str(powerDataSet)
 
 ## Construct plot, save it to PNG file (width 480 pixels, height 480 pixels)
